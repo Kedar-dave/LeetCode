@@ -1,0 +1,6 @@
+.txt
+.vscode/
+**/.history
+Blog/
+.ipynb_checkpoints/
+py/test.ipynb
