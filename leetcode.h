@@ -1,4 +1,8 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <stack>
+using namespace std;
 #ifndef LEETCODE_H
 #define LEETCODE_H
 
@@ -12,23 +16,33 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-vector<int> plusOne(vector<int>& digits);
+// Definition for singly-linked list.
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
-string longestCommonPrefix(vector<string>& strs);
+vector<int> plusOne(vector<int> &digits);
+
+string longestCommonPrefix(vector<string> &strs);
 
 int rabinKarp(string pattern, string text);
 
 int romanToInt(string s);
 
-ListNode* mergeTwoListsIterative(ListNode* list1, ListNode* list2);
-ListNode* mergeTwoListsRecursive(ListNode* l1, ListNode* l2);
+ListNode *mergeTwoListsIterative(ListNode *list1, ListNode *list2);
+ListNode *mergeTwoListsRecursive(ListNode *l1, ListNode *l2);
 
 vector<int> twoSum(vector<int> &nums, int target);
 vector<int> twoSumFast(vector<int> &nums, int target);
 
 bool isValid(string s);
 
-int removeDuplicates(vector<int>& nums);
+int removeDuplicates(vector<int> &nums);
 
 int mySqrt(int x);
 int mySqrtUsingBinarySearch(int x);

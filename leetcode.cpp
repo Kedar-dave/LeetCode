@@ -1,8 +1,12 @@
 #include <bits/stdc++.h>
+#include<vector>
+#include<string>
+#include<stack>
 #include "leetcode.h"
-
+using namespace std;
 // Definition for a binary tree node.
 struct TreeNode;
+struct ListNode;
 vector<int> plusOne(vector<int> &digits)
 {
     int n = digits.size();
