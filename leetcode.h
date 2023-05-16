@@ -37,6 +37,8 @@ int romanToInt(string s);
 ListNode *mergeTwoListsIterative(ListNode *list1, ListNode *list2);
 ListNode *mergeTwoListsRecursive(ListNode *l1, ListNode *l2);
 
+ListNode *swapPairs(ListNode *head);
+
 vector<int> twoSum(vector<int> &nums, int target);
 vector<int> twoSumFast(vector<int> &nums, int target);
 
@@ -61,4 +63,9 @@ bool treeCheck(TreeNode *left, TreeNode *right);
 
 int maxDepth(TreeNode *root);
 int maxDepthChecker(TreeNode *node, int depth);
+
+TreeNode *sortedArrayToBST(vector<int> &nums);
+TreeNode *BST(vector<int> &nums, int start, int end);
+
+vector<vector<int>> generatePascalsTriangle(int numRows);
 #endif

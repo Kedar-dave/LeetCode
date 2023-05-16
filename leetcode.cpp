@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-#include<vector>
-#include<string>
-#include<stack>
+#include <vector>
+#include <string>
+#include <stack>
 #include "leetcode.h"
 using namespace std;
 // Definition for a binary tree node.
@@ -401,4 +401,50 @@ int maxDepthChecker(TreeNode *node, int depth)
     int leftDepth = maxDepthChecker(node->left, depth + 1);
     int rightDepth = maxDepthChecker(node->right, depth + 1);
     return max(leftDepth, rightDepth);
+}
+TreeNode *sortedArrayToBST(vector<int> &nums)
+{
+    return BST(nums, 0, nums.size() - 1);
+}
+TreeNode *BST(vector<int> &nums, int start, int end)
+{
+    if (start > end)
+    {
+        return nullptr;
+    }
+    int mid = start + (end - start) / 2;
+    TreeNode *node = new TreeNode(nums[mid]);
+    node->left = BST(nums, start, mid - 1);
+    node->right = BST(nums, mid + 1, end);
+
+    return node;
+}
+vector<vector<int>> generatePascalsTriangle(int numRows)
+{
+    vector<vector<int>> triangle(numRows);
+
+    if (numRows == 0)
+        return triangle;
+
+    for (int i = 0; i < numRows; i++)
+    {
+        triangle[i].resize(i + 1, 1);
+        for (int j = 1; j < i; j++)
+        {
+            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        }
+    }
+    return triangle;
+}
+ListNode *swapPairs(ListNode *head)
+{
+    if (head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+    ListNode *nextNode = head->next;
+    head->next = swapPairs(nextNode->next);
+    nextNode->next = head;
+
+    return nextNode;
 }
