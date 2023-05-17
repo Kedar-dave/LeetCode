@@ -47,7 +47,7 @@ string longestCommonPrefix(vector<string> &strs)
 
     return "";
 }
-int rabinKarp(string pattern, string text)
+int rabinKarp(string needle, string haystack)
 {
     int m = needle.length();
     int n = haystack.length();
@@ -345,9 +345,9 @@ void inorderTraversalRecurser(TreeNode *node, vector<int> &res)
     {
         return;
     }
-    inorderTraversalHelper(node->left, res);
+    inorderTraversalRecurser(node->left, res);
     res.push_back(node->val);
-    inorderTraversalHelper(node->right, res);
+    inorderTraversalRecurser(node->right, res);
 }
 vector<int> inorderTraversalIterative(TreeNode *root)
 {
@@ -447,4 +447,66 @@ ListNode *swapPairs(ListNode *head)
     nextNode->next = head;
 
     return nextNode;
+}
+int maxProfit(vector<int> &prices)
+{
+    int minPrice = INT_MAX;
+    int maxProfit = 0;
+
+    for (int i = 0; i < prices.size(); i++)
+    {
+        if (prices[i] < minPrice)
+        {
+            minPrice = prices[i];
+        }
+        else if (prices[i] - minPrice > maxProfit)
+        {
+            maxProfit = prices[i] - minPrice;
+        }
+    }
+
+    return maxProfit;
+}
+bool isPalindrome(string s)
+{
+    string s1;
+    for (auto ele : s)
+    {
+        if (isalnum(ele))
+        {
+            if (isupper(ele))
+            {
+                s1.push_back(tolower(ele));
+            }
+            else
+            {
+                s1.push_back(ele);
+            }
+        }
+    }
+    string reversed = s1;
+    reverse(reversed.begin(), reversed.end());
+    return s1 == reversed;
+}
+int pairSum(ListNode *head)
+{
+    ListNode *current = head;
+    vector<int> values;
+
+    while (current)
+    {
+        values.push_back(current->val);
+        current = current->next;
+    }
+
+    int i = 0, j = values.size() - 1;
+    int maximumSum = 0;
+    while (i < j)
+    {
+        maximumSum = max(maximumSum, values[i] + values[j]);
+        i++;
+        j--;
+    }
+
+    return maximumSum;
 }
