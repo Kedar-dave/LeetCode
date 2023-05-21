@@ -12,7 +12,7 @@ using namespace std;
 
 struct TreeNode;
 struct ListNode;
-
+int dy,dx;
 // Functions
 ListNode *swapPairs(ListNode *head);
 int pairSum(ListNode *head); // Twin Pair Sum
@@ -23,5 +23,10 @@ bool isBipartite(vector<vector<int>> &graph);
 bool isBipartiteDFS(vector<vector<int>> &graph, int vertex, vector<int> &colors);
 
 vector<double> calcEquation(vector<vector<string>> &equations, vector<double> &values, vector<vector<string>> &queries);
+
+bool isValid(int i, int j, int r, int c)
+void changeIslandType(int i, int j, int r, int c, vector<vector<int>> &grid)
+int shortestBridge(vector<vector<int>> &grid)
+
 
 #endif
