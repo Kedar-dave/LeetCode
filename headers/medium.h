@@ -28,5 +28,8 @@ bool isValid(int i, int j, int r, int c)
 void changeIslandType(int i, int j, int r, int c, vector<vector<int>> &grid)
 int shortestBridge(vector<vector<int>> &grid)
 
+int partition(int left, int right, int pivot_index)
+void quickselect(int left, int right, int k_smallest); // Top K Frequent
+vector<int> topKFrequent(vector<int> &nums, int k);
 
 #endif

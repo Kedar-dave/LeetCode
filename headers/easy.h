@@ -56,5 +56,7 @@ int maxProfit(vector<int>& prices); // Buy and Sell Stocks
 
 bool isPalindrome(string s); //Palindrome
 
+int singleNumber(vector<int> &nums); // Single Number
 
+bool hasCycle(ListNode *head); // Linked List Cycle
 #endif
