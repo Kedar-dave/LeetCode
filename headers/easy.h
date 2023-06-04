@@ -59,4 +59,7 @@ bool isPalindrome(string s); //Palindrome
 int singleNumber(vector<int> &nums); // Single Number
 
 bool hasCycle(ListNode *head); // Linked List Cycle
+
+int majorityElement(vector<int> &nums); // Majority Element using Boyer-Moore Voting method
+
 #endif
