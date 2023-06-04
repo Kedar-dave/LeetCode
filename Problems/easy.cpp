@@ -164,6 +164,47 @@ ListNode *mergeTwoListsRecursive(ListNode *l1, ListNode *l2)
         return l2;
     }
 }
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
+{
+    ListNode *currA = headA, *currB = headB;
+    int lenA = 0, lenB = 0;
+
+    while (currA != nullptr)
+    {
+        lenA++;
+        currA = currA->next;
+    }
+
+    while (currB != nullptr)
+    {
+        lenB++;
+        currB = currB->next;
+    }
+
+    currA = headA;
+    currB = headB;
+
+    int diff = abs(lenA - lenB);
+
+    if (lenA > lenB)
+    {
+        while (diff--)
+            currA = currA->next;
+    }
+    else
+    {
+        while (diff--)
+            currB = currB->next;
+    }
+
+    while (currA != currB)
+    {
+        currA = currA->next;
+        currB = currB->next;
+    }
+
+    return currA;
+}
 vector<int> twoSum(vector<int> &nums, int target)
 {
     vector<int> Index;

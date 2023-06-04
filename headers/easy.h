@@ -20,7 +20,7 @@ int romanToInt(string s);// Roman to Integer
 
 ListNode *mergeTwoListsIterative(ListNode *list1, ListNode *list2);// Merge two linked list (sorted)
 ListNode *mergeTwoListsRecursive(ListNode *l1, ListNode *l2);
-
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB);
 
 vector<int> twoSum(vector<int> &nums, int target);
 vector<int> twoSumFast(vector<int> &nums, int target);

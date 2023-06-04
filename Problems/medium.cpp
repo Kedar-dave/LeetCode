@@ -330,3 +330,100 @@ vector<int> topKFrequent(vector<int> &nums, int k)
     copy(unique.begin() + n - k, unique.end(), top_k_frequent.begin());
     return top_k_frequent;
 }
+int shortestPathBinaryMatrix(vector<vector<int>> &grid)
+{
+    int n = grid.size();
+    if (n == 1 and grid[0][0] == 0)
+        return 1;
+    if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1)
+        return -1;
+    queue<pair<pair<int, int>, int>> q;
+    q.push({{0, 0}, 1});
+    int dir[8][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
+    while (!q.empty())
+    {
+        int len = q.size();
+        while (len--)
+        {
+            int x = q.front().first.first;
+            int y = q.front().first.second;
+            int z = q.front().second;
+            q.pop();
+
+            for (int i = 0; i < 8; i++)
+            {
+                int nx = x + dir[i][0];
+                int ny = y + dir[i][1];
+
+                if (nx >= 0 and nx < n and ny >= 0 and ny < n)
+                {
+                    if (nx == n - 1 and ny == n - 1)
+                        return z + 1;
+                    if (grid[nx][ny] == 0)
+                    {
+                        grid[nx][ny] = 1;
+                        q.push({{nx, ny}, z + 1});
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
+int TimeToInformDFS(int current, vector<vector<int>> &adjList, vector<int> &informTime)
+{
+    int maxTime = 0;
+    for (int subordinate : adjList[current])
+    {
+        maxTime = max(maxTime, TimeToInformDFS(subordinate, adjList, informTime));
+    }
+    return maxTime + informTime[current];
+}
+
+int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTime)
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    vector<vector<int>> adjList(n);
+    for (int i = 0; i < n; i++)
+    {
+        if (manager[i] != -1)
+        {
+            adjList[manager[i]].push_back(i);
+        }
+    }
+    return TimeToInformDFS(headID, adjList, informTime);
+}
+// Number of Provinces
+int findCircleNum(vector<vector<int>> &isConnected)
+{
+    int n = isConnected.size();
+    vector<bool> visited(n, false);
+    int provinces = 0;
+    queue<int> q;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+        {
+            provinces++;
+            q.push(i);
+            while (!q.empty())
+            {
+                int cur = q.front();
+                q.pop();
+                visited[cur] = true;
+                for (int j = 0; j < n; j++)
+                {
+                    if (isConnected[cur][j] == 1 && !visited[j])
+                    {
+                        q.push(j);
+                    }
+                }
+            }
+        }
+    }
+
+    return provinces;
+}

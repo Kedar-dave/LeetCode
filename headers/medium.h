@@ -32,4 +32,10 @@ int partition(int left, int right, int pivot_index)
 void quickselect(int left, int right, int k_smallest); // Top K Frequent
 vector<int> topKFrequent(vector<int> &nums, int k);
 
+int shortestPathBinaryMatrix(vector<vector<int>>& grid); 
+
+int TimeToInformDFS(int current, vector<vector<int>> &adjList, vector<int> &informTime); // Time to Inform All Employees
+int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTime);
+
+int findCircleNum(vector<vector<int>> &isConnected); // Number of Provinces
 #endif
