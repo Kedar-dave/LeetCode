@@ -62,4 +62,5 @@ bool hasCycle(ListNode *head); // Linked List Cycle
 
 int majorityElement(vector<int> &nums); // Majority Element using Boyer-Moore Voting method
 
+int titleToNumber(string columnTitle); // Excel Sheet Column Number
 #endif

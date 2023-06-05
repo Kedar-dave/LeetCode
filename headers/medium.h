@@ -38,4 +38,6 @@ int TimeToInformDFS(int current, vector<vector<int>> &adjList, vector<int> &info
 int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTime);
 
 int findCircleNum(vector<vector<int>> &isConnected); // Number of Provinces
+
+bool checkStraightLine(vector<vector<int>> &coordinates); // Check Straight Line
 #endif
