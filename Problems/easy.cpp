@@ -579,3 +579,17 @@ int titleToNumber(string columnTitle)
     }
     return result;
 }
+uint32_t reverseBits(uint32_t n)
+{
+    uint32_t ans;
+    int c = 0;
+    while (c < 32)
+    {
+        int a = (n & 1);
+        ans = ans << 1;
+        ans = ans | a;
+        n = n >> 1;
+        c++;
+    }
+    return ans;
+}

@@ -40,4 +40,6 @@ int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTim
 int findCircleNum(vector<vector<int>> &isConnected); // Number of Provinces
 
 bool checkStraightLine(vector<vector<int>> &coordinates); // Check Straight Line
+
+bool canMakeArithmeticProgression(vector<int> &arr); //  Can Make Arithmetic Progression From Sequence
 #endif
