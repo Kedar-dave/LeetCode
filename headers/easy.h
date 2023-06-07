@@ -66,4 +66,5 @@ int titleToNumber(string columnTitle); // Excel Sheet Column Number
 
 uint32_t reverseBits(uint32_t n); // Reverse Bits
 
+int hammingWeight(uint32_t n); // Hamming Distance
 #endif

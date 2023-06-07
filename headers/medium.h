@@ -42,4 +42,6 @@ int findCircleNum(vector<vector<int>> &isConnected); // Number of Provinces
 bool checkStraightLine(vector<vector<int>> &coordinates); // Check Straight Line
 
 bool canMakeArithmeticProgression(vector<int> &arr); //  Can Make Arithmetic Progression From Sequence
+
+int minFlips(int a, int b, int c); // Minimum Flips to Make a OR b Equal to c
 #endif
