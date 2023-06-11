@@ -263,12 +263,13 @@ int shortestBridge(vector<vector<int>> &grid)
     }
     return 0;
 }
-
 vector<int> unique;
+
 map<int, int> count_map;
 
 int partition(int left, int right, int pivot_index)
 {
+    
     int pivot_frequency = count_map[unique[pivot_index]];
 
     swap(unique[pivot_index], unique[right]);
@@ -493,3 +494,59 @@ int minFlips(int a, int b, int c)
     }
     return flips;
 }
+
+long long int test(int a, int index, int n)
+{
+    long long int b = max(0, a - index);
+    long long int res = (a + b) * (a - b + 1) / 2;
+    b = max(0, (a - ((n - 1) - index)));
+    res = res + (a + b) * (a - b + 1) / 2;
+
+    return res - a;
+}
+
+int maxValue(int n, int index, int maxSum)
+{
+
+    maxSum = maxSum - n;
+    int l = 0, r = maxSum;
+
+    while (l < r)
+    {
+        int m = (l + r + 1) / 2;
+        if (test(m, index, n) > maxSum)
+        {
+            r = m - 1;
+        }
+        else
+        {
+            l = m;
+        }
+    }
+    return l + 1;
+}
+class SnapshotArray { // SnapShot Array Problem
+public:
+    int snapId;
+    vector<vector<pair<int, int>>> snaps;
+    SnapshotArray(int length) {
+        snapId = 0;
+        snaps.resize(length);
+        for (int i = 0; i < length; ++i) {
+            snaps[i].push_back(make_pair(0, 0));
+        }
+    }
+    
+    void set(int index, int val) {
+        snaps[index].push_back(make_pair(snapId, val));
+    }
+    
+    int snap() {
+        return snapId++;
+    }
+    
+    int get(int index, int snap_id) {
+        auto it = upper_bound(snaps[index].begin(), snaps[index].end(), make_pair(snap_id,INT_MAX));
+        return prev(it)->second;
+    }
+};
