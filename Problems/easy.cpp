@@ -603,3 +603,72 @@ int hammingWeight(uint32_t n)
     }
     return count;
 }
+vector<string> summaryRanges(vector<int> &nums)
+{
+    vector<string> res;
+    int i = 0, n = nums.size();
+    while (i < n)
+    {
+        int start, end;
+        start = nums[i];
+        while (i + 1 < n && nums[i + 1] == nums[i] + 1)
+            i++;
+        end = nums[i];
+        if (start == end)
+            res.push_back(to_string(start));
+        else
+            res.push_back(to_string(start) + "->" + to_string(end));
+        i++;
+    }
+    return res;
+}
+class HappyNumber
+{
+public:
+    bool isHappy(int n)
+    {
+        int slow = n;
+        int fast = getNext(n);
+        while (slow != fast && fast != 1)
+        {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+        }
+        return fast == 1;
+    }
+    int getNext(int n)
+    {
+        int sum = 0;
+        while (n != 0)
+        {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+};
+
+void inorderTraversalBST(TreeNode *node) // Minimum Absolute Difference in BST
+{
+    if (node == NULL)
+    {
+        return;
+    }
+
+    inorderTraversalBST(node->left);
+    // Find the difference with the previous value if it is there.
+    if (prevNode != NULL)
+    {
+        minDifference = min(minDifference, node->val - prevNode->val);
+    }
+    prevNode = node;
+    inorderTraversalBST(node->right);
+}
+
+int getMinimumDifference(TreeNode *root) // Minimum Absolute Difference in BST
+
+{
+    inorderTraversalBST(root);
+    return minDifference;
+}

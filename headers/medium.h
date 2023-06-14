@@ -12,7 +12,7 @@ using namespace std;
 
 struct TreeNode;
 struct ListNode;
-int dy,dx;
+int dy, dx;
 class SnapshotArray;
 // Functions
 ListNode *swapPairs(ListNode *head);
@@ -33,7 +33,7 @@ int partition(int left, int right, int pivot_index);
 void quickselect(int left, int right, int k_smallest); // Top K Frequent
 vector<int> topKFrequent(vector<int> &nums, int k);
 
-int shortestPathBinaryMatrix(vector<vector<int>>& grid); 
+int shortestPathBinaryMatrix(vector<vector<int>> &grid);
 
 int TimeToInformDFS(int current, vector<vector<int>> &adjList, vector<int> &informTime); // Time to Inform All Employees
 int numOfMinutes(int n, int headID, vector<int> &manager, vector<int> &informTime);
@@ -49,5 +49,6 @@ int minFlips(int a, int b, int c); // Minimum Flips to Make a OR b Equal to c
 int maxValue(int n, int index, int maxSum);
 long long int test(int a, int index, int n); // Maximum Value at a Given Index in a Bounded Array
 
+int equalPairs(vector<vector<int>> &grid); // Equal Row and Column Pairs
 
 #endif

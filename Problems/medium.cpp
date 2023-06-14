@@ -269,7 +269,7 @@ map<int, int> count_map;
 
 int partition(int left, int right, int pivot_index)
 {
-    
+
     int pivot_frequency = count_map[unique[pivot_index]];
 
     swap(unique[pivot_index], unique[right]);
@@ -525,28 +525,75 @@ int maxValue(int n, int index, int maxSum)
     }
     return l + 1;
 }
-class SnapshotArray { // SnapShot Array Problem
+class SnapshotArray
+{ // SnapShot Array Problem
 public:
     int snapId;
     vector<vector<pair<int, int>>> snaps;
-    SnapshotArray(int length) {
+    SnapshotArray(int length)
+    {
         snapId = 0;
         snaps.resize(length);
-        for (int i = 0; i < length; ++i) {
+        for (int i = 0; i < length; ++i)
+        {
             snaps[i].push_back(make_pair(0, 0));
         }
     }
-    
-    void set(int index, int val) {
+
+    void set(int index, int val)
+    {
         snaps[index].push_back(make_pair(snapId, val));
     }
-    
-    int snap() {
+
+    int snap()
+    {
         return snapId++;
     }
-    
-    int get(int index, int snap_id) {
-        auto it = upper_bound(snaps[index].begin(), snaps[index].end(), make_pair(snap_id,INT_MAX));
+
+    int get(int index, int snap_id)
+    {
+        auto it = upper_bound(snaps[index].begin(), snaps[index].end(), make_pair(snap_id, INT_MAX));
         return prev(it)->second;
     }
 };
+
+int equalPairs(vector<vector<int>> &grid)
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    map<vector<int>, int> r;
+    map<vector<int>, int> c;
+    for (int i = 0; i < grid.size(); i++)
+    {
+        if (r.count(grid[i]))
+        {
+            r[grid[i]]++;
+        }
+        else
+        {
+            r[grid[i]] = 1;
+        }
+        vector<int> t;
+        for (int j = 0; j < grid.size(); j++)
+        {
+            t.push_back(grid[j][i]);
+        }
+        if (c.count(t))
+        {
+            c[t]++;
+        }
+        else
+        {
+            c[t] = 1;
+        }
+    }
+    int ans = 0;
+    for (auto ele : r)
+    {
+        if (c.count(ele.first))
+        {
+            ans += ele.second * c[ele.first];
+        }
+    }
+    return ans;
+}
