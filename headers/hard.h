@@ -10,4 +10,5 @@ using namespace std;
 
 struct TreeNode;
 struct ListNode;
+class NumofWays;
 #endif
