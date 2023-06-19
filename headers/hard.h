@@ -10,5 +10,8 @@ using namespace std;
 
 struct TreeNode;
 struct ListNode;
-class NumofWays;
+
+class NumofWays;                   // Num of Ways
+class MakeArrayStrictlyIncreasing; // Make array Strictly Increasing
+
 #endif

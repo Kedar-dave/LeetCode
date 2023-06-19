@@ -77,4 +77,5 @@ vector<string> summaryRanges(vector<int> &nums); // Summary Ranges
 void inorderTraversalBST(TreeNode *node); // Minimum Absolute Difference in BST
 int getMinimumDifference(TreeNode *root); // Minimum Absolute Difference in BST
 
+int largestAltitude(vector<int> &gain); // Find the Highest Altitude
 #endif

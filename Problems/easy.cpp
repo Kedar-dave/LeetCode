@@ -672,3 +672,15 @@ int getMinimumDifference(TreeNode *root) // Minimum Absolute Difference in BST
     inorderTraversalBST(root);
     return minDifference;
 }
+
+int largestAltitude(vector<int> &gain)
+{
+    int currentAltitude = 0;
+    int highestPoint = currentAltitude;
+    for (int i = 0; i < gain.size(); i++)
+    {
+        currentAltitude += gain[i];
+        highestPoint = max(highestPoint, currentAltitude);
+    }
+    return highestPoint;
+}
