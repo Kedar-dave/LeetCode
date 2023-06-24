@@ -14,4 +14,5 @@ struct ListNode;
 class NumofWays;                   // Num of Ways
 class MakeArrayStrictlyIncreasing; // Make array Strictly Increasing
 
+int tallestBillboard(vector<int> &rods);
 #endif

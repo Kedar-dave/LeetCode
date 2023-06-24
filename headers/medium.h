@@ -52,4 +52,8 @@ long long int test(int a, int index, int n); // Maximum Value at a Given Index i
 int equalPairs(vector<vector<int>> &grid); // Equal Row and Column Pairs
 
 int maxLevelSum(TreeNode *root); // Max Sum in Binary Tree- returns level of tree with max sum
+
+vector<int> getAverages(vector<int> &nums, int k); // K Radius Subarray Averages
+
+int longestArithSeqLength(vector<int> &nums);
 #endif
