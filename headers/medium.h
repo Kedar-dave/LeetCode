@@ -56,4 +56,6 @@ int maxLevelSum(TreeNode *root); // Max Sum in Binary Tree- returns level of tre
 vector<int> getAverages(vector<int> &nums, int k); // K Radius Subarray Averages
 
 int longestArithSeqLength(vector<int> &nums);
+
+long long totalCost(vector<int> &costs, int k, int candidates);
 #endif
