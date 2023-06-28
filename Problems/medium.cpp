@@ -723,3 +723,75 @@ long long totalCost(vector<int> &costs, int k, int candidates)
     }
     return ans;
 }
+
+vector<vector<int>> kSmallestPairs(vector<int> &nums1, vector<int> &nums2, int k)
+{
+    vector<vector<int>> resV; // Result vector to store the pairs
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    // Priority queue to store pairs with smallest sums, sorted by the sum
+
+    // Push the initial pairs into the priority queue
+    for (int x : nums1)
+    {
+        pq.push({x + nums2[0], 0}); // The sum and the index of the second element in nums2
+    }
+
+    // Pop the k smallest pairs from the priority queue
+    while (k-- && !pq.empty())
+    {
+        int sum = pq.top().first;  // Get the smallest sum
+        int pos = pq.top().second; // Get the index of the second element in nums2
+
+        resV.push_back({sum - nums2[pos], nums2[pos]}); // Add the pair to the result vector
+        pq.pop();                                       // Remove the pair from the priority queue
+
+        // If there are more elements in nums2, push the next pair into the priority queue
+        if (pos + 1 < nums2.size())
+        {
+            pq.push({sum - nums2[pos] + nums2[pos + 1], pos + 1});
+        }
+    }
+
+    return resV; // Return the k smallest pairs
+}
+double maxProbability(int n, vector<vector<int>> &edges, vector<double> &succProb, int start, int end)
+{
+
+    // Adjacency list
+    vector<vector<pair<int, double>>> adj(n);
+    for (int i = 0; i < edges.size(); i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        adj[u].push_back({v, succProb[i]});
+        adj[v].push_back({u, succProb[i]});
+    }
+
+    // ans will be in dist[end]
+    vector<double> dist(n, 0.0);
+    dist[start] = 1.0;
+
+    queue<int> q;
+    q.push(start);
+
+    while (!q.empty())
+    {
+        int curr = q.front();
+        q.pop();
+
+        for (auto x : adj[curr])
+        {
+            int node = x.first;
+            double prob = x.second;
+            double newProb = dist[curr] * prob;
+
+            if (newProb > dist[node])
+            {
+                dist[node] = newProb;
+                q.push(node);
+            }
+        }
+    }
+
+    return dist[end];
+}

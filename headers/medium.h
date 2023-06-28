@@ -58,4 +58,8 @@ vector<int> getAverages(vector<int> &nums, int k); // K Radius Subarray Averages
 int longestArithSeqLength(vector<int> &nums);
 
 long long totalCost(vector<int> &costs, int k, int candidates);
+
+vector<vector<int>> kSmallestPairs(vector<int> &nums1, vector<int> &nums2, int k)
+
+    double maxProbability(int n, vector<vector<int>> &edges, vector<double> &succProb, int start, int end);
 #endif
