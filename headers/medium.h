@@ -61,5 +61,5 @@ long long totalCost(vector<int> &costs, int k, int candidates);
 
 vector<vector<int>> kSmallestPairs(vector<int> &nums1, vector<int> &nums2, int k)
 
-    double maxProbability(int n, vector<vector<int>> &edges, vector<double> &succProb, int start, int end);
+double maxProbability(int n, vector<vector<int>> &edges, vector<double> &succProb, int start, int end);
 #endif
